@@ -1,0 +1,16 @@
+[Unit]
+Description=Razor Web Application as Service
+
+[Service]
+WorkingDirectory=/var/www/dotnet/razor/
+ExecStart=/usr/bin/dotnet /var/www/dotnet/razor/RazorApp.dll --urls=http://0.0.0.0:5000 --pathBase=/razor
+SyslogIdentifier=Razor
+
+Restart=always
+RestartSec=5
+
+Environment=DOTNET_ROOT=/usr/lib/dotnet  
+Environment=ASPNETCORE_ENVIRONMENT=Production
+
+[Install]
+WantedBy=multi-user.target
