@@ -2,7 +2,20 @@ var builder = WebApplication.CreateBuilder(args);
 // builder.WebHost.UseIISIntegration();
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+var services = builder.Services;
+
+services.AddRazorPages();
+
+services.AddDistributedMemoryCache();
+
+services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(1800);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+// services.AddMvc().AddSessionStateTempDataProvider();
 
 var app = builder.Build();
 
@@ -19,6 +32,9 @@ app.UsePathBase(configuration["pathBase"]);
 // app.UsePathBase("/razor");
 
 //app.UseHttpsRedirection();
+
+app.UseSession();
+
 app.UseStaticFiles();
 
 app.UseRouting();
