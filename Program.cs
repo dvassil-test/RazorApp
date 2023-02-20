@@ -1,3 +1,9 @@
+using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
 // builder.WebHost.UseIISIntegration();
 
@@ -16,6 +22,7 @@ services.AddSession(options =>
 });
 
 // services.AddMvc().AddSessionStateTempDataProvider();
+services.AddMvc();
 
 var app = builder.Build();
 
@@ -44,4 +51,3 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
-
