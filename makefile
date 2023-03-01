@@ -10,9 +10,9 @@ build:
 
 deploy:
 	rm -rf /var/www/dotnet/razor/*
-	sudo systemctl stop razor.service <passwd
+	sudo systemctl stop razor.service
 	cp -r bin/Release/net6.0/publish/* $(TARGET)
-	sudo systemctl start razor.service <passwd
+	sudo systemctl start razor.service
 
 run:
 	$(TARGET)/RazorApp --urls=http://0.0.0.0:5000 --pathBase=/razor
@@ -21,11 +21,11 @@ clean:
 	rm -rf bin obj $(TARGET)/*
 
 install:
-	cp service/razor.service /etc/systemd/system
-	sudo systemctl daemon-reload <passwd
-	sudo systemctl start razor.service <passwd
-	sudo systemctl enable razor.service <passwd
+	sudo cp service/razor.service /etc/systemd/system
+	sudo systemctl daemon-reload
+	sudo systemctl start razor.service
+	sudo systemctl enable razor.service
 
 uninstall:
-	sudo systemctl disable razor.service <passwd
-	rm -f /etc/systemd/system/razor.service
+	sudo systemctl disable razor.service
+	sudo rm -f /etc/systemd/system/razor.service
