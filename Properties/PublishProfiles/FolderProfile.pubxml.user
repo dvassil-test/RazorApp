@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>F:\projects\tests\RazorApp\bin\Release\net7.0\publish\</_PublishTargetUrl>
-    <History>True|2022-12-01T08:20:52.8763653Z;</History>
+    <_PublishTargetUrl>F:\projects\tests\RazorApp\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-05-11T11:29:15.8361490Z;True|2023-05-11T14:27:48.4535156+03:00;True|2023-05-11T14:27:32.0308623+03:00;False|2023-05-11T14:27:11.8537061+03:00;True|2022-12-01T10:20:52.8763653+02:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

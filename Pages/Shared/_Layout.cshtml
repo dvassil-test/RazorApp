@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+
+@Layout
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,9 +31,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
+                        @{
+                            if (Context.Session.GetString("UserName") != null) { 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Logout">Logout</a>
                         </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>
@@ -41,7 +51,13 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - RazorApp - <a asp-area="" asp-page="/Privacy">Privacy</a> - <a asp-area="" asp-page="/Logout">Logout</a>
+            &copy; 2022 - RazorApp - <a asp-area="" asp-page="/Privacy">Privacy</a> -
+            @{
+                if (Context.Session.GetString("UserName") != null)
+                {
+                    <a asp-area="" asp-page="/Logout">Logout</a>
+                }
+            }
         </div>
     </footer>
 
